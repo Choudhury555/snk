@@ -5,6 +5,9 @@ on:
     - cron: "0 */12 * * *"   # Runs every 12 hours
   workflow_dispatch:
 
+permissions:
+  contents: write   # ✅ gives permission to push to output branch
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +15,7 @@ jobs:
       - name: Generate Snake
         uses: Platane/snk@v3
         with:
-          github_user_name: choudhury555   # 👉 your GitHub username
+          github_user_name: choudhury555   # <-- your GitHub username
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
